@@ -6,16 +6,18 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require '../vendor/autoload.php';
+require $_SERVER["DOCUMENT_ROOT"] . '/vendor/autoload.php';
 
 // load env
-include ("../env.php");
+require $_SERVER["DOCUMENT_ROOT"] . "/env.php";
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
-
 //Server settings
-$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+if($APP_DEBUG) {
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;  //Enable verbose debug output
+}
+
 $mail->isSMTP();                                            //Send using SMTP
 $mail->Host = $mail_host;                     //Set the SMTP server to send through
 $mail->SMTPAuth = true;                                   //Enable SMTP authentication
