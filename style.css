@@ -1,0 +1,11 @@
+@font-face {
+    font-display: swap;
+    font-family: Oslo Sans;
+    font-style: normal;
+    font-weight: 400;
+    src: url('font/OsloSans-Regular.woff') format('woff');
+}
+
+* {
+    font-family: 'Oslo Sans', sans-serif;
+}
