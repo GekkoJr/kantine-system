@@ -11,6 +11,15 @@ if(isset($_POST['delete_category_id'])) {
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
+// Legge til funksjon
+if(isset($_POST['add_category'])) {
+    $new_category_name = $_POST['new_category_name'];
+    $add_query = "INSERT INTO kategorier (name) VALUES ('$new_category_name')";
+    $result = $conn->query($add_query);
+    // Oppdater siden etter tillegg
+    echo "<meta http-equiv='refresh' content='0'>";
+}
+
 $query = "SELECT * FROM kategorier";
 $result = $conn->query($query);
 ?>
@@ -69,19 +78,21 @@ $result = $conn->query($query);
         <div class="bg-white border border-gray-200 shadow rounded-md w-full md:flex-1 relative">
             <div class="flex flex-col md:flex-row items-stretch md:items-center md:space-x-3 space-y-3 md:space-y-0 justify-between mx-4 py-4 dark:border-gray-700">
                 <div class="w-full md:w-1/2">
-                    <form class="flex items-center">
-                        <div class="relative w-full">
-                            <input type="text" id="simple-search" placeholder="Skriv inn kategori navn..." required="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-600 dark:focus:border-blue-600">
+
+                    <form class="flex items-center" method="post">
+                        <div class="relative w-full pr-3">
+                            <input type="text" name="new_category_name" id="new_category_name" placeholder="Skriv inn kategori navn..." required="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-600 dark:focus:border-blue-600">
+                        </div>
+                        <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+                            <button type="submit" name="add_category" id="createProductButton" data-drawer-target="drawer-form" data-drawer-show="drawer-form" aria-controls="drawer-form" class="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                <svg class="h-3.5 w-3.5 mr-1.5 -ml-1" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                                </svg>
+                                Legg til vare
+                            </button>
                         </div>
                     </form>
-                </div>
-                <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                    <button type="button" id="createProductButton" data-drawer-target="drawer-form" data-drawer-show="drawer-form" aria-controls="drawer-form" class="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                        <svg class="h-3.5 w-3.5 mr-1.5 -ml-1" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
-                        </svg>
-                        Legg til kategori
-                    </button>
+
                 </div>
             </div>
  
@@ -91,33 +102,34 @@ $result = $conn->query($query);
                         <tr>
                             <th scope="col" class="p-4">Kategori</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                echo '<tr class="border-b dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700">';
-                                echo '<th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">' . htmlspecialchars($row["name"]) . '</th>';
-                                echo '<td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap flex items-center justify-end">';
-                                echo '<form method="post" class="inline-block">';
-                                echo '<input type="hidden" name="delete_category_id" value="' . $row["id"] . '">';
-                                echo '<button type="submit" class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">';
-                                echo '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">';
-                                echo '<path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />';
-                                echo '</svg>';
-                                echo 'Slett';
-                                echo '</button>';
-                                echo '</form>';
-                                echo '</td>';
-                                echo '</tr>';
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo '<tr class="border-b dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700">';
+                                    echo '<th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">' . htmlspecialchars($row["name"]) . '</th>';
+                                    echo '<td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap flex items-center justify-end">';
+                                    echo '<form method="post" class="inline-block">';
+                                    echo '<input type="hidden" name="delete_category_id" value="' . $row["id"] . '">';
+                                    echo '<button type="submit" class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">';
+                                    echo '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">';
+                                    echo '<path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />';
+                                    echo '</svg>';
+                                    echo 'Slett';
+                                    echo '</button>';
+                                    echo '</form>';
+                                    echo '</td>';
+                                    echo '</tr>';
+                                }
+                            } else {
+                                echo '<tr><td colspan="2">Ingen kategorier tilgjengelig</td></tr>';
                             }
-                        } else {
-                            echo '<tr><td colspan="2">Ingen kategorier tilgjengelig</td></tr>';
-                        }
-                        ?>
+                            ?>
                     </tbody>
                 </table>
             </div>
+        </div>
         </div>
     </div>
 </section>
