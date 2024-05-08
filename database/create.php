@@ -34,7 +34,7 @@ create table if not exists varer
         allergi varchar(255),
         kategori int not null,
     constraint varer_pk
-        primary key (id)
+        primary key (id),
     constraint varer_fk
         foreign key (kategori) references kategorier(id)
 )
