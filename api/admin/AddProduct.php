@@ -2,9 +2,17 @@
 require ("../auth/auth.php");
 
 if (!isAdmin()) {
-    die("access denied");
+    // die("access denied");
 }
 
-$name = $_POST["name"];
+require ("../DB.php");
+
+$name = $_POST["navn"];
 $beskrivelse = $_POST["beskrivelse"];
 $allergi = $_POST["allergi"];
+$kategori = $_POST["kategori"];
+$pris = $_POST["pris"];
+
+$q = "INSERT INTO varer (navn, pris, kategori, allergi, beskrivelse) VALUES ('$name', $pris, $kategori, '$allergi', '$beskrivelse')";
+$conn->query($q);
+header("Location: /administrer_varer.php");
