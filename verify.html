@@ -31,14 +31,14 @@
                 Bekreft e-postadressen din
             </div>
             <p class="pb-5 text-sm text-gray-500">Skriv inn den 6 sifret koden vi har sendt til e-posten din.</p>
-            <form class="space-y-4 md:space-y-6">
+            <form action="api/auth/VerifyCode.php" method="post" class="space-y-4 md:space-y-6">
                 <div class="flex mb-2 justify-center space-x-2 rtl:space-x-reverse" id="code-inputs">
-                    <input type="text" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
-                    <input type="text" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
-                    <input type="text" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
-                    <input type="text" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
-                    <input type="text" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
-                    <input type="text" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
+                    <input type="text" name="1" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
+                    <input type="text" name="2" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
+                    <input type="text" name="3" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
+                    <input type="text" name="4" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
+                    <input type="text" name="5" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
+                    <input type="text" name="6" maxlength="1" class="block text-lg font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 w-1/6 h-16" required />
                 </div>
                 <p id="countdown" class="text-xs text-center text-gray-500">Koden utløper om <b>5</b> minutter og <b>0</b> sekunder.</p>
                 <button type="submit" name="verify" class="w-full text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Bekreft</button>
