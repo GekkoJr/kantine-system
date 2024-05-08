@@ -36,6 +36,6 @@ create table if not exists varer
     constraint varer_pk
         primary key (id)
     constraint varer_fk
-        foreign key (kategori) refrences kategorier(id)
+        foreign key (kategori) references kategorier(id)
 )
 ");
