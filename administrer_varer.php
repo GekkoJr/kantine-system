@@ -1,3 +1,17 @@
+<?php
+// Include the database connection file
+require_once('api/DB.php');
+
+// Create a new DB instance
+$db = $conn;
+
+// Fetch data from the "kategorier" table
+$query = "SELECT id, name FROM kategorier";
+$categories = $db->query($query);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
