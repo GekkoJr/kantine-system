@@ -32,5 +32,5 @@ if ($error != null) {
     $mail->Body = "Koden er: " . $code;
     $mail->send();
     $_SESSION["email"] = $email;
-
+    header("Location: /verify.html");
 }
