@@ -3,7 +3,7 @@
 require_once('api/DB.php');
 
 // Create a new DB instance
-$db = new DB();
+$db = $conn;
 
 // Fetch data from the "kategorier" table
 $query = "SELECT id, name FROM kategorier";
