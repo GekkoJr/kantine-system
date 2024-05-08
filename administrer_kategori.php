@@ -1,3 +1,8 @@
+<?php
+require_once 'api/DB.php';
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
