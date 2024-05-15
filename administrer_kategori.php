@@ -31,7 +31,6 @@ if(isset($_POST['add_category'])) {
         $add_query = "INSERT INTO kategorier (name) VALUES ('$new_category_name')";
         $result = $conn->query($add_query);
         // Oppdater siden etter tillegg
-        echo "<meta http-equiv='refresh' content='0'>";
         $alert_style = 'block';
         $alert_type = 'green';
         $alert_message = "Kategorien ble lagt til.";
@@ -115,10 +114,9 @@ $result = $conn->query($query);
             <div class="mx-auto max-w-screen-2xl">
                 <div class="bg-white border border-gray-200 shadow rounded-md w-full md:flex-1 relative">
                     <div class="flex flex-col md:flex-row items-stretch md:items-center md:space-x-3 space-y-3 md:space-y-0 justify-between mx-4 py-4 dark:border-gray-700">
-                        <div class="w-full md:w-1/2">
-
-                            <form class="flex items-center" method="post">
-                                <div class="relative w-full pr-3">
+                        <div class="w-full md:w-1/2">           
+                            <form class="flex items-center flex-col md:flex-row" method="post">
+                                <div class="relative w-full mr-0 mb-3 md:mb-0 md:mr-3">
                                     <input type="text" name="new_category_name" id="new_category_name" placeholder="Skriv inn kategori navn..." required="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-600 dark:focus:border-blue-600">
                                 </div>
                                 <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
@@ -126,11 +124,10 @@ $result = $conn->query($query);
                                         <svg class="h-3.5 w-3.5 mr-1.5 -ml-1" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                             <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                                         </svg>
-                                        Legg til vare
+                                        Legg til kategori
                                     </button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
  
@@ -146,7 +143,7 @@ $result = $conn->query($query);
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
                                             echo '<tr class="border-b dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700">';
-                                            echo '<th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">' . htmlspecialchars($row["name"]) . '</th>';
+                                            echo '<th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">' . htmlspecialchars($row["name"]) . '</th>';
                                             echo '<td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap flex items-center justify-end">';
                                             echo '<form method="post" class="inline-block">';
                                             echo '<input type="hidden" name="delete_category_id" value="' . $row["id"] . '">';
@@ -161,7 +158,7 @@ $result = $conn->query($query);
                                             echo '</tr>';
                                         }
                                     } else {
-                                        echo '<tr><td colspan="2">Ingen kategorier tilgjengelig</td></tr>';
+                                        echo '<tr><td colspan="2" class="text-center pb-5">Ingen kategorier tilgjengelig</td></tr>';
                                     }
                                     ?>
                             </tbody>
