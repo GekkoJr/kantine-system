@@ -202,7 +202,7 @@ $categories = $db->query($query);
                             $result = $db->query($query);
 
                             // Check if query executed successfully
-                            echo "<option value='3' selected>Ingen kategori</option>"; 
+                           // echo "<option value='3' selected>Ingen kategori</option>";
 
                             // //////////////////////////////////
                             // NB!!!!
