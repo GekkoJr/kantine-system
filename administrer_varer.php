@@ -111,7 +111,7 @@ $categories = $db->query($query);
                                 $result = $db->query($query);
                                 $kategori = mysqli_fetch_row($result);
                                 $kategori_navn = $kategori[1];
-                                
+
 
                         ?>
                             <tr class="border-b dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700">
@@ -151,11 +151,11 @@ $categories = $db->query($query);
                                     </div>
                                 </td>
                             </tr>
-                        <?php } 
+                        <?php }
                         } else {
                             // Noe feil melnding om ingen varer
                         }
-                        
+
                         ?>
                     </tbody>
                 </table>
@@ -202,16 +202,6 @@ $categories = $db->query($query);
                             $result = $db->query($query);
 
                             // Check if query executed successfully
-                           // echo "<option value='3' selected>Ingen kategori</option>";
-
-                            // //////////////////////////////////
-                            // NB!!!!
-                            // Det finns en row i kategori tabellen som har id = 3, som er Ingen. 
-                            // Basically statisk løsning.
-                            // //////////////////////////////////
-
-
-
                             if ($result) {
                                 // Fetching categories one by one
                                 while ($row = $result->fetch_assoc()) {
@@ -224,6 +214,7 @@ $categories = $db->query($query);
                                 }
                             } else {
                                 // Handle database query error
+                                echo "<option value=\"\">Error fetching categories</option>";
                             }
 
                             ?>
@@ -231,7 +222,7 @@ $categories = $db->query($query);
                     </div>
                     <div class="col-span-2">
                         <label for="beskrivelse" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Varebeskrivelse</label>
-                        <textarea name="beskrivelse" id="beskrivelse" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Skriv produktbeskrivelse her"></textarea>                    
+                        <textarea name="beskrivelse" id="beskrivelse" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Skriv produktbeskrivelse her"></textarea>
                     </div>
                 </div>
                 <button name="submitProduct" type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -265,7 +256,7 @@ $categories = $db->query($query);
                 </div>
             </div>
             <!-- Mobilbredde -->
-            <div class="grid grid-cols-1 mx-5 mb-5 sm:grid-cols-2 gap-4 md:hidden">        
+            <div class="grid grid-cols-1 mx-5 mb-5 sm:grid-cols-2 gap-4 md:hidden">
                 <?php
                     $query = "SELECT * FROM varer";
                     $varer_array = $db->query($query);
@@ -283,7 +274,7 @@ $categories = $db->query($query);
                         $kategori = mysqli_fetch_row($result);
                         $kategori_navn = $kategori[1];
                 ?>
-                    
+
                 <div class="bg-white space-y-3 rounded-lg border border-gray-200 relative">
                     <div class="flex items-center text-sm p-4 rounded-t-lg bg-gray-100">
                         <div class="text-gray-700"><?php echo $navn ?></div>
@@ -324,7 +315,7 @@ $categories = $db->query($query);
                     <p>Pris: <span class="text-gray-500 font-normal"><?php echo $pris ?></span></p>
                 </div>
             </div>
-            <?php 
+            <?php
                 }
             }
             ?>
