@@ -19,7 +19,7 @@ $db = $conn;
 </head>
 
 <body>
-    <form method="post" action="">
+    <form method="post" action="/api/order/new.php">
     <nav class="bg-gray-600 border-b-4 border-gray-300">
         <div class="py-5 px-10 lg:max-w-7xl lg:mx-auto flex justify-between items-center">
             <img src="images/kuben_logo.png" class="h-6" alt="Kuben Logo"/>
