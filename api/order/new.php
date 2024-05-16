@@ -44,5 +44,16 @@ if ($order != []) {
     }
 
     echo "bestilling registrert";
+    $user = $conn->query("SELECT * FROM users WHERE id = $bruker")->fetch_assoc();
+
+    require "generatePDF.php";
+    require "../EmailClient.php";
+    $file = generateOrderPdf($orderid);
+    $mail->addAddress($user["email"]);
+    $mail->Subject = "Ny bestilling #" . $orderid;
+    $mail->Body = "<p>Bestilling #" . $orderid . " er registrert. En kopi av bestillinger er vedlagt denne eposten</p>";
+    $mail->addAttachment($file, "bestilling_" . $orderid);
+    $mail->send();
+
 
 }
