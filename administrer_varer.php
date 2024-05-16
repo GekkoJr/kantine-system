@@ -264,8 +264,7 @@ $categories = $db->query($query);
                     </div>
                 </div>
             </div>
-             <!-- Mobilbredde -->
-   
+            <!-- Mobilbredde -->
             <div class="grid grid-cols-1 mx-5 mb-5 sm:grid-cols-2 gap-4 md:hidden">        
                 <?php
                     $query = "SELECT * FROM varer";
