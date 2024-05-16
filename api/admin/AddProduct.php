@@ -15,9 +15,7 @@ if (empty($_POST['allergi'])){
     $allergi = $_POST["allergi"];
 }
 $kategori = $_POST["kategori"];
-if ($kategori == 0){
-    $kategori = 3;
-}
+
 $pris = $_POST["pris"];
 
 $q = "INSERT INTO varer (navn, pris, kategori, allergi, beskrivelse) VALUES ('$name', $pris, $kategori, '$allergi', '$beskrivelse')";
