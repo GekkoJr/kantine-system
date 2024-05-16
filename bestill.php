@@ -64,16 +64,15 @@ $db = $conn;
                     <p class="mb-2 text-sm text-gray-500"><?php echo $beskrivelse?></p>
                     <p class="text-xs text-gray-500 bg-gray-100 py-1 px-2 rounded-md"><?php echo $allergi?></p>
                 </div>
-                <div class="absolute top-0 right-0">
+                <div class="absolute top-0 right-0" id="minus-button">
                     <svg class="w-10 h-10 p-2 rounded-tr-md text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
                     </svg>
-                </div>
-                <div class="absolute top-0 right-10">
-                    <!-- <p class="w-10 h-10 p-2 text-gray-600 bg-gray-50 flex items-center justify-center">2</p> -->
-                    <input type="number" name="varer[<?php echo $id?>]" value="0" min="0" class="w-10 h-10 p-2 text-gray-600 bg-gray-50 flex items-center justify-center">
-                </div>                
-                <div class="absolute top-0 right-20">
+                </div>   
+                <div class="absolute top-0 right-10" id="input-field">
+                    <input id="input" type="text" name="varer[<?php echo $id?>]" min="0" class="w-10 h-10 p-2 text-gray-600 bg-gray-50 border-none text-center" value="1">
+                </div>           
+                <div class="absolute top-0 right-20" id="pluss-button">
                     <svg class="w-10 h-10 p-2 rounded-bl-2xl text-gray-600 hover:text-gray-700 bg-gray-100 hover:bg-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7"/>
                     </svg>
@@ -142,5 +141,28 @@ $db = $conn;
 <footer class="flex flex-col mt-20 p-6 items-center bg-gray-800 text-center text-white">
     <p class="flex items-center justify-center">Kantinebestilling system | Kuben videregående skole</p>
 </footer>
+<script>
+    var minus_button = document.getElementById('minus_button');
+    var input_field = document.getElementById('input-field');
+                let input = document.getElementById('input');
+    var pluss_button = document.getElementById('pluss-button');
 
+    input_field.addEventListener('input', () => {
+        if (input.value >= 1){
+            minus_button.classList.remove('display-none')
+            input_field.classList.remove('display-none');
+        } else {
+            input_field.classList.add('display-none');
+            minus_button.classList.add('display-none');
+        }
+    })
+
+    minus_button.addEventListener('click', () => {
+        input.value = input.value - 1
+    })
+
+    pluss_button.addEventListener('click', () => {
+        input.value = input.value + 1
+    })
+</script>
 </html>
