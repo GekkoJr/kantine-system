@@ -13,19 +13,19 @@ $order = [];
 
 foreach ($items as $key => $el) {
     if ($el > 0) {
-        $order[] = [$key => $el];
+        $order[$key] = $el;
     }
 }
 
 if ($order != []) {
     $totalpris = 0;
-
+    var_dump($order);
     foreach ($order as $key => $el) {
 
         // yes its bad
         foreach ($products as $product) {
             if ($key == $product["id"]) {
-                $totalpris += ($product["pris"] * intval($el));
+                $totalpris += (intval($product["pris"] )* intval($el));
                 break;
             }
         }
@@ -33,9 +33,16 @@ if ($order != []) {
 
     $time = time();
     $bruker = $_SESSION["id"];
-    $conn->query("insert into bestillinger (bruker_id, time, totalpris) VALUES ('$bruekr', $time, $totalpris)");
+    $avdeling = 0;
+    $conn->query("insert into bestillinger (bruker_id, time, total_pris, avdeling) VALUES ('$bruker', $time, $totalpris, $avdeling)");
 
     $orderid = $conn->query("SELECT * FROM bestillinger WHERE time = $time")->fetch_assoc()["id"];
+    foreach ($order as $key => $el) {
 
-    foreach ($)
+        echo $orderid . "," . $el . "," . $key . "<br>";
+        $conn->query("INSERT INTO vare_bestilling (vare_id, bestilling_id, antall) VALUES ('$key', $orderid, $el[0])");
+    }
+
+    echo "bestilling registrert";
+
 }
