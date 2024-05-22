@@ -38,7 +38,6 @@ $db = $conn;
         <button class="py-1 px-3 m-1 bg-white rounded-md shadow border border-gray-200 hover:bg-gray-100">Kategori 3</button>
         <button class="py-1 px-3 m-1 bg-white rounded-md shadow border border-gray-200 hover:bg-gray-100">Kategori 4</button>
         <button class="py-1 px-3 m-1 bg-white rounded-md shadow border border-gray-200 hover:bg-gray-100">Kategori 5</button>
-        <button class="py-1 px-3 m-1 bg-white rounded-md shadow border border-gray-200 hover:bg-gray-100">Kategori 6</button>
     </div>
     <div class="min-h-screen pt-5 px-10 lg:max-w-7xl lg:mx-auto">
         <p class="text-xl mb-5 border-b-2 pb-1 border-gray-300">Varer</p>
