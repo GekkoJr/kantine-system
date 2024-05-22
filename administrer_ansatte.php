@@ -78,13 +78,13 @@ $result = $conn->query($query);
                         <a href="administrer_varer.php" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-300 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0">Varer</a>
                     </li>
                     <li>
-                        <a href="administrer_ansatte.php" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-300 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0">Ansatte</a>
+                        <a href="#" class="block py-2 pr-4 pl-3 text-blue-700 border-b border-gray-300 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0" aria-current="page">Ansatte</a>
                     </li>
                     <li>
                         <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-300 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0">Bestillinger</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 text-blue-700 border-b border-gray-300 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0" aria-current="page">Kategori</a>
+                        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-300 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0">Kategori</a>
                     </li>
                 </ul>
             </div>
@@ -109,7 +109,7 @@ $result = $conn->query($query);
             </button>
         </div>
 
-        <p class="text-xl mb-5 border-b-2 pb-1 border-gray-300">Administrer kategori</p>
+        <p class="text-xl mb-5 border-b-2 pb-1 border-gray-300">Administrer ansatte</p>
         <section class="bg-gray-50 dark:bg-gray-900 antialiased">
             <div class="mx-auto max-w-screen-2xl">
                 <div class="bg-white border border-gray-200 shadow rounded-md w-full md:flex-1 relative">
@@ -117,14 +117,14 @@ $result = $conn->query($query);
                         <div class="w-full md:w-1/2">           
                             <form class="flex items-center flex-col md:flex-row" method="post">
                                 <div class="relative w-full mr-0 mb-3 md:mb-0 md:mr-3">
-                                    <input type="text" name="new_category_name" id="new_category_name" placeholder="Skriv inn kategori navn..." required="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-600 dark:focus:border-blue-600">
+                                    <input type="text" name="new_category_name" id="new_category_name" placeholder="Skriv inn ansattes navn..." required="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-600 dark:focus:border-blue-600">
                                 </div>
                                 <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                                     <button type="submit" name="add_category" id="createProductButton" data-drawer-target="drawer-form" data-drawer-show="drawer-form" aria-controls="drawer-form" class="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                                         <svg class="h-3.5 w-3.5 mr-1.5 -ml-1" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                             <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                                         </svg>
-                                        Legg til kategori
+                                        Legg til ansatte
                                     </button>
                                 </div>
                             </form>
