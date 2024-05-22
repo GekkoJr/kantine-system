@@ -8,12 +8,12 @@ function generateOrderPdf($id)
     $pdf->SetAuthor('Kantine system');
     $pdf->SetTitle('Bestilling' . $id);
     $pdf->SetSubject('Bestilling' . $id);
-    $pdf->SetFont('times', '', 12);
+    $pdf->SetFont('helvetica', '', 12);
     $pdf->setAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
     $pdf->setDefaultMonospacedFont(PDF_FONT_MONOSPACED);
     $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
-    $pdf->setHeaderData("$", PDF_HEADER_LOGO_WIDTH, "Kuben kantine system");
+    $pdf->setHeaderData("$",0, "Kuben kantine system");
     $pdf->addPage();
 
     $html = generateHTML($id);
@@ -55,7 +55,7 @@ function generateHTML($id)
             if ($cat['id'] == $productDetail['kategori']) {
                 if (!$printedCat) {
                     $html .= "<table border='1' cellspacing='0' cellpadding='5'>";
-                   $html .= "<tr style='background-color: lightblue'><th>" . $cat["name"] . "</th><td>.</td><td>.</td><td>.</td></tr>";
+                   $html .= "<tr style='background-color: black'><th>" . $cat["name"] . "</th><td>.</td><td>.</td><td>.</td></tr>";
                     $html .= "<tr><th>Navn</th><th>Beskrivelse</th><th>Pris</th><th>Antall</th></tr>";
 
                     $printedCat = true;

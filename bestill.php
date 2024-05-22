@@ -41,7 +41,7 @@ $db = $conn;
         <button class="py-1 px-3 m-1 bg-white rounded-md shadow border border-gray-200 hover:bg-gray-100">Kategori 6</button>
     </div>
     <div class="min-h-screen pt-5 px-10 lg:max-w-7xl lg:mx-auto">
-        <p class="text-xl mb-5 border-b-2 pb-1 border-gray-300">Mat fra Database</p>
+        <p class="text-xl mb-5 border-b-2 pb-1 border-gray-300">Varer</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <?php
                 $query = "SELECT * FROM varer";
@@ -83,57 +83,6 @@ $db = $conn;
         </form>
         </div>
 
-        <p class="text-xl mb-5 mt-20 border-b-2 pb-1 border-gray-300">DETTE ER FAKE FAKE MAT IKKE SPIS, den er ikke den del av forms.</p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <a href="" class="flex flex-col bg-white border border-gray-200 shadow rounded-md w-full md:flex-1 relative">
-                <div class="flex flex-col justify-between p-4">
-                    <p class="text-lg font-bold tracking-tight text-gray-900">Baguette</p>
-                    <p class="mb-3 text-sm font-semibold text-gray-500">kr 29,00</p>
-                    <p class="mb-2 text-sm text-gray-500">Ost og skinke (halal)</p>
-                    <p class="text-xs text-gray-500 bg-gray-100 py-1 px-2 rounded-md">Melk, egg og nøtter</p>
-                </div>
-                <div class="absolute top-0 right-0">
-                    <svg class="w-10 h-10 p-2 rounded-tr-md text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
-                    </svg>
-                </div>
-                <div class="absolute top-0 right-10">
-                    <p class="w-10 h-10 p-2 text-gray-600 bg-gray-50 flex items-center justify-center">1</p>
-                </div>                
-                <div class="absolute top-0 right-20">
-                    <svg class="w-10 h-10 p-2 rounded-bl-2xl text-gray-600 hover:text-gray-700 bg-gray-100 hover:bg-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7"/>
-                    </svg>
-                </div>
-            </a>
-            <a href="" class="flex flex-col bg-white border border-gray-200 rounded-md shadow w-full md:flex-1 relative">
-                <div class="flex flex-col justify-between p-4">
-                    <p class="text-lg font-bold tracking-tight text-gray-900">Baguette</p>
-                    <p class="mb-3 text-sm font-semibold text-gray-500">kr 29,00</p>
-                    <p class="mb-2 text-sm text-gray-500">Ost og skinke (halal)</p>
-                    <p class="text-xs text-gray-500 bg-gray-100 py-1 px-2 rounded-md">Melk, egg og nøtter</p>
-                </div>
-                <div class="absolute top-0 right-0">
-                    <svg class="w-10 h-10 p-2 rounded-tr-md rounded-bl-2xl text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
-                    </svg>
-                </div>
-            </a>
-            <a href="" class="flex flex-col bg-white border border-gray-200 rounded-md shadow w-full md:flex-1 relative">
-                <div class="flex flex-col justify-between p-4">
-                    <p class="text-lg font-bold tracking-tight text-gray-900">Baguette</p>
-                    <p class="mb-3 text-sm font-semibold text-gray-500">kr 29,00</p>
-                    <p class="mb-2 text-sm text-gray-500">Ost og skinke (halal)</p>
-                    <p class="text-xs text-gray-500 bg-gray-100 py-1 px-2 rounded-md">Melk, egg og nøtter</p>
-                </div>
-                <div class="absolute top-0 right-0">
-                    <svg class="w-10 h-10 p-2 rounded-tr-md rounded-bl-2xl text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
-                    </svg>
-                </div>
-            </a>
-        </div>
     </div>
 </body>
 
