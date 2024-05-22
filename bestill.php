@@ -23,8 +23,7 @@ $db = $conn;
     <nav class="bg-gray-600 border-b-4 border-gray-300">
         <div class="py-5 px-10 lg:max-w-7xl lg:mx-auto flex justify-between items-center">
             <img src="images/kuben_logo.png" class="h-6" alt="Kuben Logo"/>
-            <input type="submit" value="Temporary Submit button" class="py-1 px-4 bg-white rounded">
-            <button type="button" class="relative inline-flex items-center p-2 text-sm font-medium text-center text-white bg-gray-700 rounded-md hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300">
+            <button type="submit" class="relative inline-flex items-center p-2 text-sm font-medium text-center text-white bg-gray-700 rounded-md hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300">
                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10V6a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v4m3-2 .917 11.923A1 1 0 0 1 17.92 21H6.08a1 1 0 0 1-.997-1.077L6 8h12Z"/>
                   </svg>
