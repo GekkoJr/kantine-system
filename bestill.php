@@ -43,7 +43,7 @@ $result = $db->query($query);
             while ($row = $result->fetch_assoc()) {
                 $kategori_navn = $row['name'];
                 // Generer en knapp for hver kategori
-                echo '<button class="py-1 px-3 m-1 bg-white rounded-md shadow border border-gray-200 hover:bg-gray-100">' . $kategori_navn . '</button>';
+                echo '<button type="button" class="py-1 px-3 m-1 bg-white rounded-md shadow border border-gray-200 hover:bg-gray-100">' . $kategori_navn . '</button>';
             }
         } else {
             // Hvis ingen kategorier ble funnet i databasen
