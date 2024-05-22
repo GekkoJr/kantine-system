@@ -26,7 +26,7 @@ if ($result["role"] == "admin") {
 } else {
     $_SESSION["admin"] = false;
 }
-header("Location: /order.php");
+header("Location: /bestill.php");
 
 
 

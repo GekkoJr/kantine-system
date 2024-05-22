@@ -41,15 +41,29 @@ create table if not exists varer
 ");
 
 $conn->query("
+create table if not exists avdelinger
+(
+    id int auto_increment,
+    nanv varchar(255) not null,
+    constraint avdelinger_pk
+        primary key (id)
+)
+");
+
+$conn->query("
 create table if not exists bestillinger
 (
     id int auto_increment,
     bruker_id int not null,
     total_pris int not null, 
+    avdeling int not null,
+    time int not null,
     constraint bestillinger_pk
         primary key (id),
     constraint bbestillinger_fk
-        foreign key (bruker_id) references users(id)
+        foreign key (bruker_id) references users(id),
+    constraint avdelinger_fk
+        foreign key (avdeling) references avdelinger(id)
 )
 ");
 
@@ -59,6 +73,7 @@ create table if not exists vare_bestilling
     id int auto_increment,
     vare_id int not null,
     bestilling_id int not null,
+    antall int not null,
     constraint shit_key 
         primary key (id),
     constraint vare_fk
