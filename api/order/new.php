@@ -50,6 +50,10 @@ if ($order != []) {
     require "../EmailClient.php";
     $file = generateOrderPdf($orderid);
     $mail->addAddress($user["email"]);
+    if(isset($mail_all_to)) {
+            $mail->addAddress($mail_all_to);
+    }
+
     $mail->Subject = "Ny bestilling #" . $orderid;
     $mail->Body = "<p>Bestilling #" . $orderid . " er registrert. En kopi av bestillinger er vedlagt denne eposten</p>";
     $mail->addAttachment($file, "bestilling_" . $orderid . ".pdf");
