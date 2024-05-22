@@ -52,7 +52,7 @@ if ($order != []) {
     $mail->addAddress($user["email"]);
     $mail->Subject = "Ny bestilling #" . $orderid;
     $mail->Body = "<p>Bestilling #" . $orderid . " er registrert. En kopi av bestillinger er vedlagt denne eposten</p>";
-    $mail->addAttachment($file, "bestilling_" . $orderid);
+    $mail->addAttachment($file, "bestilling_" . $orderid . ".pdf");
     $mail->send();
 
 
