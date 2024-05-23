@@ -201,17 +201,6 @@ $categories = $db->query($query);
                             $query = "SELECT * FROM kategorier";
                             $result = $db->query($query);
 
-                            // Check if query executed successfully
-                           // echo "<option value='3' selected>Ingen kategori</option>";
-
-                            // //////////////////////////////////
-                            // NB!!!!
-                            // Det finns en row i kategori tabellen som har id = 3, som er Ingen. 
-                            // Basically statisk løsning.
-                            // //////////////////////////////////
-
-
-
                             if ($result) {
                                 // Fetching categories one by one
                                 while ($row = $result->fetch_assoc()) {
