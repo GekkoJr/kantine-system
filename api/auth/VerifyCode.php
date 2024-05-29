@@ -1,6 +1,7 @@
 <?php
 session_start();
-$code = $_POST["code"];
+$code = $_POST["1"] . $_POST["2"] . $_POST["3"] . $_POST["4"] . $_POST["5"]. $_POST["6"];
+$code = intval($code);
 $email = $_SESSION["email"];
 
 if($code == null) {
@@ -25,7 +26,7 @@ if ($result["role"] == "admin") {
 } else {
     $_SESSION["admin"] = false;
 }
-header("Location: /order.php");
+header("Location: /bestill.php");
 
 
 
